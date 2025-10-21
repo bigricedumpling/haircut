@@ -1,0 +1,56 @@
+/* --- 全局字体和背景 --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+}
+
+/* --- 隐藏 Streamlit 默认页眉和页脚 --- */
+/* (注意: 这可能需要根据 Streamlit 版本微调) */
+/*
+header {visibility: hidden;}
+footer {visibility: hidden;}
+*/
+
+/* --- 统一h1, h2, h3 标题样式 --- */
+h1 {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+h2 {
+    color: #333;
+    font-weight: 600;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 5px;
+}
+h3 {
+    color: #555;
+    font-weight: 600;
+}
+
+/* --- 统一定制的“备注”框 (替换st.info/success) --- */
+.custom-insight-box {
+    background-color: #f8f8f8;
+    border-left: 5px solid #0068c9; /* 统一的蓝色调 */
+    padding: 15px 20px;
+    margin: 20px 0px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+/* --- 统一 Plotly 图表容器 --- */
+div[data-testid="stPlotlyChart"] {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    border: 1px solid #f0f0f0;
+}
+
+/* --- 统一 Mermaid 流程图样式 --- */
+div[data-testid="stMermaid"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    background-color: #fafafa;
+}

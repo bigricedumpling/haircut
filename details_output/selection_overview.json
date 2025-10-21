@@ -1,0 +1,68 @@
+{
+  "total_selected": 309,
+  "selection_time": "2025-10-21 14:02:23",
+  "selection_criteria": {
+    "whitening_keywords": [
+      "显白",
+      "黄皮",
+      "肤色",
+      "亲妈",
+      "天菜",
+      "素颜",
+      "提亮",
+      "去黄",
+      "衬肤"
+    ],
+    "color_categories": [
+      "棕色系",
+      "红色/橘色系",
+      "亚麻/青色系",
+      "灰色/蓝色/紫色系",
+      "金色/浅色系",
+      "高饱和色系"
+    ],
+    "priority_explanation": {
+      "P0": "显白相关高销量商品",
+      "P1": "头部高销量商品",
+      "P2": "色系覆盖商品"
+    }
+  },
+  "batches": [
+    {
+      "batch_num": 1,
+      "filename": "selection_details_batch_1.json",
+      "filepath": "details_output\\selection_details_batch_1.json",
+      "item_count": 100
+    },
+    {
+      "batch_num": 2,
+      "filename": "selection_details_batch_2.json",
+      "filepath": "details_output\\selection_details_batch_2.json",
+      "item_count": 100
+    },
+    {
+      "batch_num": 3,
+      "filename": "selection_details_batch_3.json",
+      "filepath": "details_output\\selection_details_batch_3.json",
+      "item_count": 100
+    },
+    {
+      "batch_num": 4,
+      "filename": "selection_details_batch_4.json",
+      "filepath": "details_output\\selection_details_batch_4.json",
+      "item_count": 9
+    }
+  ],
+  "priority_distribution": {
+    "P0": 299,
+    "P1": 10
+  },
+  "color_coverage": {
+    "棕色系": 249,
+    "红色/橘色系": 6,
+    "金色/浅色系": 225,
+    "高饱和色系": 2,
+    "亚麻/青色系": 191,
+    "灰色/蓝色/紫色系": 199
+  }
+}

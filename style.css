@@ -1,38 +1,146 @@
-/* --- 自定义 V3 洞察框样式 --- */
+/* --- 
+V7 - 视觉重构 & 字体修复版
+--- */
+
+/* --- 1. 用户配置 (请确保文件存在) --- */
+@font-face {
+  font-family: '方正国美进道体'; 
+  src: url('./方正国美进道体.TTF') format('truetype'); /* 确保此文件在同一目录 */
+}
+
+:root {
+  --paper-texture-url: url('./中式斑驳纸纹 (16).jpg'); 
+  --noise-overlay-url: url('./noise.png');
+  --theme-color-main: #B85C40; 
+  --theme-color-accent: #A03000; 
+  --theme-color-text: #333333; 
+}
+
+/* --- 2. 全局字体、背景、滤镜 (V7 核心) --- */
+
+/* 强制覆盖 Streamlit 字体 */
+body, .stApp, div, p, span, li, a {
+    font-family: '方正国美进道体', sans-serif !important;
+}
+
+body, .stApp {
+    background-image: var(--paper-texture-url);
+    background-repeat: repeat;
+    background-color: #F8F5F0; 
+}
+
+div[data-testid="stAppViewContainer"] > section:first-child > div[data-testid="stVerticalBlock"] {
+    font-family: '方正国美进道体', sans-serif;
+    color: var(--theme-color-text);
+}
+
+/* 【【【 V7 字体修复：强制 Plotly 内部字体 】】】 */
+.plotly .svg-container, .plotly tspan {
+    font-family: '方正国美进道体', sans-serif !important;
+}
+
+/* (关键) 复古滤镜层 */
+div[data-testid="stAppViewContainer"] > section {
+    filter: sepia(0.15) saturate(0.85) brightness(1.05);
+}
+
+/* (关键) 噪点图层 */
+.stApp::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: var(--noise-overlay-url);
+    background-repeat: repeat;
+    pointer-events: none; /* 允许点击穿透这一层 */
+    z-index: 9999;
+    opacity: 0.15; /* 噪点的不透明度 */
+}
+
+/* (关键) 噪点图层 - V-Final 修复版 */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: var(--noise-overlay-url); /* 你的 URL 变量 */
+    background-repeat: repeat;
+    pointer-events: none; /* 允许点击穿透这一层 */
+    z-index: 9999;
+    opacity: 0.15; /* 噪点的不透明度 */
+}
+
+
+/* --- 3. 核心组件美化 (V7) --- */
+
 div.custom-insight-box {
-    background-color: #f0f8ff; /* 浅蓝色背景 */
-    border-left: 5px solid #4682B4; /* 钢蓝色竖线 (匹配新主色) */
-    padding: 15px 20px;
-    margin: 10px 0px;
+    background-color: rgba(255, 251, 245, 0.85); 
+    border-left: 4px solid var(--theme-color-main); 
+    padding: 18px 22px;
+    margin: 18px 0px; 
     border-radius: 5px;
-    font-size: 1.0rem;
-    line-height: 1.6;
+    font-size: 1.05rem; 
+    line-height: 1.75; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.03); 
 }
 
 div.custom-insight-box b {
-    color: #004a99; /* 重点文字颜色 */
+    color: var(--theme-color-accent); 
+    font-weight: 600; 
 }
 
-/* --- 优化 Streamlit 指标卡片 --- */
 div[data-testid="metric-container"] {
-    background-color: #f9f9f9;
+    background-color: rgba(253, 253, 253, 0.8); 
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px);
     border-radius: 8px;
-    padding: 15px;
-    border: 1px solid #eee;
+    padding: 16px;
+    border: 0.5px solid rgba(180, 180, 180, 0.5); 
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
-
 div[data-testid="metric-container"] > div:first-child {
-    color: #555; /* 指标标题 */
+    color: #555; 
 }
-
 div[data-testid="metric-container"] div[data-testid="metric-value"] {
     font-size: 2.2rem;
-    color: #4682B4; /* 关键数字 (匹配新主色) */
+    color: var(--theme-color-main); 
     font-weight: 600;
 }
-
-/* --- 【【【 需求3：删除红色 】】】 --- */
-/* 覆盖streamlit默认的红色负面三角箭头 */
 div[data-testid="metric-container"] div[data-testid="stMetricDelta"] svg {
-    fill: #808080; /* 改为灰色 */
+    fill: #808080; 
+}
+
+
+/* --- 4. 布局与字体微调 (V7) --- */
+
+h1, h2, h3 {
+    font-family: '方正国美进道体', sans-serif !important;
+}
+
+h1 {
+    color: var(--theme-color-accent);
+    padding-bottom: 5px;
+}
+h2 {
+    color: var(--theme-color-main);
+    border-bottom: 2px solid rgba(180, 92, 64, 0.2); 
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+h3 {
+    color: var(--theme-color-text);
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+div[data-testid="stRadio"] {
+    font-family: '方正国美进道体', sans-serif;
+}
+
+.stMarkdown p {
+    line-height: 1.7; 
 }

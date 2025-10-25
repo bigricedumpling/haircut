@@ -1,0 +1,38 @@
+/* --- 自定义 V3 洞察框样式 --- */
+div.custom-insight-box {
+    background-color: #f0f8ff; /* 浅蓝色背景 */
+    border-left: 5px solid #4682B4; /* 钢蓝色竖线 (匹配新主色) */
+    padding: 15px 20px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    font-size: 1.0rem;
+    line-height: 1.6;
+}
+
+div.custom-insight-box b {
+    color: #004a99; /* 重点文字颜色 */
+}
+
+/* --- 优化 Streamlit 指标卡片 --- */
+div[data-testid="metric-container"] {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #eee;
+}
+
+div[data-testid="metric-container"] > div:first-child {
+    color: #555; /* 指标标题 */
+}
+
+div[data-testid="metric-container"] div[data-testid="metric-value"] {
+    font-size: 2.2rem;
+    color: #4682B4; /* 关键数字 (匹配新主色) */
+    font-weight: 600;
+}
+
+/* --- 【【【 需求3：删除红色 】】】 --- */
+/* 覆盖streamlit默认的红色负面三角箭头 */
+div[data-testid="metric-container"] div[data-testid="stMetricDelta"] svg {
+    fill: #808080; /* 改为灰色 */
+}

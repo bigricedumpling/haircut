@@ -522,7 +522,7 @@ def plot_social_topic_engagement(avg_likes_df, defs):
     st.plotly_chart(fig, use_container_width=True)
 
 # --- 1E. 核心洞察: "WHAT IS 显白?" ---
-@st.cache_data(show_spinner="构建知识图谱中...", max_entries=10)
+@st.cache_data(show_spinner="构建知识图谱中...", max_entries=10, hash_funcs={pd.DataFrame: id})
 def get_network_graph_data(social_df, ecom_df, co_occurrence_data, defs, analysis_target="whitening"):
     """
     (V7) 为 "显白" 或 "显气色" 话题构建一个二级网络图数据

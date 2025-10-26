@@ -479,10 +479,10 @@ def load_and_process_data(base_dir):
     social_k_df = pd.DataFrame({'keyword': social_k_series.index, 'count': social_k_series.values})
 
     keyword_strategy = {
-        '电商关键词 (Top 15)': ecom_k_df, # V9.1 升级键名
-        '社交关键词 (Top 15)': social_k_df  # V9.1 升级键名
+        '电商关键词15': ecom_k_df, # V9.1 升级键名
+        '社交关键词15': social_k_df  # V9.1 升级键名
     }
-    logging.info("关键词策略分析完成 (Top 15)")
+    logging.info("关键词策略分析完成15")
 
     # 9. 打包所有处理好的数据 (V9.1)
     data_pack = {
@@ -521,7 +521,7 @@ if __name__ == "__main__":
             print(f"- {key}")
         
         print("\n--- Sample: Keyword Strategy (Ecom Top 15) ---")
-        print(processed_pack['keyword_strategy']['电商关键词 (Top 15)'].head())
+        print(processed_pack['keyword_strategy']['电商关键词15'].head())
 
         print("\n--- Sample: Comments Insight ---")
         print(processed_pack['comments_insight'])

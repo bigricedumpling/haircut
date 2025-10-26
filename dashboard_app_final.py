@@ -164,12 +164,12 @@ def plot_meta_source_volume(raw_data_counts):
 
 def plot_keyword_analysis_treemap(keyword_strategy):
     """图 4: 核心搜索词词频"""
-    st.subheader("图 4: 核心搜索词词频 (Top 15)")
+    st.subheader("图 4: 核心搜索词词频15")
     
-    ecom_df = keyword_strategy['电商关键词 (Top 15)'].copy()
+    ecom_df = keyword_strategy['电商关键词15'].copy()
     ecom_df['type'] = '电商搜索'
     
-    social_df = keyword_strategy['社交关键词 (Top 15)'].copy()
+    social_df = keyword_strategy['社交关键词15'].copy()
     social_df['type'] = '社交搜索'
     
     df = pd.concat([ecom_df, social_df])
